@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<script src="converter.js"></script>
   
 <h2>Currency Converter</h2>
 
-<button type="button"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time.</button>
+<p id="fetchResult"></p>
 
-<p id="demo"></p>
+<form oninput="amountOut.value=convert(amountIn.value,typeIn.value,typeOut.value)">
+      <input type="number" size=10 id="amountIn">
+      <select id="typeIn"></select>
+      = <output name="amountOut"></output>
+      <select id="typeOut"></select>
+</form>
+
+<script src="converter.js"></script>
 
 </body>
 </html>
