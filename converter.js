@@ -1,6 +1,3 @@
-// enable modern mode
-//'use strict';
-
 // basic variables
 let apiKey = 'c9555a7ee515159104fdba587ac2b480';
 let rates;
@@ -39,7 +36,6 @@ function convert(amt, curIn, curOut) {
 }
 
 // fetch the rates
-
 fetchRates(apiKey);
 
 
