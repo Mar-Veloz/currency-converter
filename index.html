@@ -1,19 +1,29 @@
 <!DOCTYPE html>
+<meta charset="UTF-8">
 <html>
-<body>
+  <body>
+    <script src="converter.js"></script>
+    <script src="config.js"></script>
   
-<h2>Currency Converter</h2>
+    <h2>Currency Converter</h2>
 
-<p id="fetchResult"><i>Fetching conversion rates...</i></p>
+    <p id="fetchResult"><i>Fetching conversion rates...</i></p>
 
-<form oninput="amountOut.value=convert(amountIn.value,typeIn.value,typeOut.value)">
-      <input type="number" size=10 id="amountIn">
-      <select id="typeIn"></select>
-      = <output name="amountOut"></output>
-      <select id="typeOut"></select>
-</form>
+    <form> 
+      <input type="number" size=10 id="amountOne" oninput="amountTwo.value=convert(amountOne.value,typeOne.value,typeTwo.value)">
+      <select id="typeOne" oninput="amountTwo.value=convert(amountOne.value,typeOne.value,typeTwo.value)"></select>
+      <br>
+      <input type="number" size=10 id="amountTwo" oninput="amountOne.value=convert(amountTwo.value,typeTwo.value,typeOne.value)">
+      <select id="typeTwo" oninput="amountOne.value=convert(amountTwo.value,typeTwo.value,typeOne.value)"></select>
+    </form>
 
-<script src="converter.js"></script>
-
-</body>
+    <script>
+      fetchRates(apiKey,"fetchResult")
+    .then(script => {
+	listOptions("typeOne");
+	listOptions("typeTwo");
+    });
+    </script>
+    
+  </body>
 </html>
