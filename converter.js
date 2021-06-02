@@ -11,18 +11,19 @@ async function fetchRates(apiKey) {
 
     let response = await fetch(apiUrl);
     
-    if (response.ok) {
-	let result = await response.json();
-	if (result.success) {
-	    rates = result.rates;
-	    let timestamp = result.timestamp;
-	} else {
-	    // error code goes here
-	}
-    } else {
-	// error code goes here
+    if (!response.ok) {
+	document.getElementById("fetchResult").innerHTML = "<b>Error:</b> fetching conversion rates failed!";
+	return
     }
-
+    let result = await response.json();
+    if (!result.success) {
+	document.getElementById("fetchResult").innerHTML = "<b>Error:</b> fetching conversion rates failed!";
+	return
+    }
+    rates = result.rates;
+    let fetchDate = new Date(result.timestamp);
+    document.getElementById("fetchResult").innerHTML = "Conversion rates last updated on: " + fetchDate;
+    
     let typeOptions = "";
     for (let key in rates) {
 	typeOptions += '<option value="' + key + '">' + key + '</option>'
