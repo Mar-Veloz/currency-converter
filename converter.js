@@ -17,7 +17,7 @@ async function fetchRates(apiKey,id) {
 	return
     }
     rates = result.rates;
-    let fetchDate = new Date(result.timestamp);
+    let fetchDate = new Date(result.timestamp*1000);
     document.getElementById(id).innerHTML = "Conversion rates last updated on: " + fetchDate;
 }
 
