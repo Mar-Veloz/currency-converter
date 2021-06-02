@@ -14,7 +14,7 @@
       <select id="typeOne" oninput="amountTwo.value=convert(amountOne.value,typeOne.value,typeTwo.value)"></select>
       <br>
       <input type="number" size=10 id="amountTwo" oninput="amountOne.value=convert(amountTwo.value,typeTwo.value,typeOne.value)">
-      <select id="typeTwo" oninput="amountOne.value=convert(amountTwo.value,typeTwo.value,typeOne.value)"></select>
+      <select id="typeTwo" oninput="amountTwo.value=convert(amountOne.value,typeOne.value,typeTwo.value)"></select>
     </form>
 
     <script>
